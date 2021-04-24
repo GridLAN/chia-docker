@@ -15,6 +15,7 @@ if [[ ! "$(ls -A /plots)" ]]; then
   echo "Plots directory appears to be empty and you have not specified another, try mounting a plot directory with the docker -v command "
 fi
 
+venv/bin/chia plots create -t ${plots_dir} -2 ${plots_dir} -d ${plots_dir}
 chia plots add -d ${plots_dir}
 
 sed -i 's/localhost/127.0.0.1/g' ~/.chia/mainnet/config/config.yaml
